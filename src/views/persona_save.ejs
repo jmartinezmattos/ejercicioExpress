@@ -47,6 +47,7 @@
                     <th>Apellido</th>
                     <th>Edad</th>
                     <th>CI</th>
+                    <th>    </th>
                 </tr>
             </thead>
             <tbody>
@@ -57,6 +58,9 @@
                         <td><%= personas[i].apellido %></td>
                         <td><%= personas[i].edad %></td>
                         <td><%= personas[i].ci %></td>
+                        <td>
+                            <a href="/delete/<%= personas[i]._id %>">Borrar</a>
+                        </td>
                       </tr>
                 <% } %>
             </tbody>

@@ -19,7 +19,15 @@ router.post('/add_person', async (req, res) => {
     console.log("pasa por ak");
     const persona = new Persona(req.body);
     await persona.save();
-    res.send('recieved');
+    res.redirect("/");
 })
+
+router.get("/delete/:id", async (req, res)=> {
+    const { id } = req.params;
+    await Persona.remove({_id: id});//elimino la persona con ese id
+    res.redirect("/");
+
+})
+
 
 module.exports = router
