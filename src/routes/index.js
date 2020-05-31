@@ -2,21 +2,23 @@ const express = require('express')
 
 const router = express.Router()
 
-const Task = require('../models/task');
+//const Task = require('../models/task');
+const Persona = require('../models/persona');
 
-router.get('/', (req, res) => { //lo que responde a '/'
-    res.render('index');//muestra index.ejs y no le tengo que decir que es el ejs porque lo especifique 
+router.get('/', async (req, res) => { //lo que responde a '/'
+    const personas = await Persona.find();
+    res.render('persona_save', {
+        personas
+    });             //muestra index.ejs y no le tengo que decir que es el ejs porque lo especifique 
     //res.send('Hello world estas en el home');
+    console.log(personas) //muestro las personas por consola
 })
 
 
-router.get('/form', (req, res) => { //lo que responde a '/'
-    res.render('form'); 
-})
-
-router.post('/add', async (req, res) => {
-    const task = new Task(res.body);
-    await task.save();
+router.post('/add_person', async (req, res) => {
+    console.log("pasa por ak");
+    const persona = new Persona(req.body);
+    await persona.save();
     res.send('recieved');
 })
 

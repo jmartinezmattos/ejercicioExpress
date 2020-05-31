@@ -7,10 +7,10 @@ const PersonaSchema = new Schema({
 
     nombre: String,
     apellido: String,
-    edad: Int16Array,
+    edad: Number,
     ci: String
 
 });
 
 
-module.exports = mongoose.model('tasks',PersonaSchema)//se almacenan en 'tasks'
+module.exports = mongoose.model('personas',PersonaSchema)//se almacenan en 'personas'
