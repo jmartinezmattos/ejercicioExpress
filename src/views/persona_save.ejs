@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 
-<%= personas %>
+<!-- <%= personas %>  Probando la variable--> 
 
     <div class="col-md-5">
         <div class="card">
           <div class="card-body">
             <form action="/add_person" method="post">
+                <h1 class = "lead">Ingresar nueva persona aquí</h1>
                 <div class ="form-group">
                     <input type="text" name="nombre" placeholder="Nombre" class="form-control">
                 </div>
@@ -34,6 +35,35 @@
         </div>
       </div>
 
+
+      <!-- Tabla -->
+      <div class="col -md -7">
+        <table class="table table-bordered table-hover">
+
+            <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Edad</th>
+                    <th>CI</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i=0;i < personas.length;i++) {%>
+                    <tr>
+                        <td><%= i + 1%></td>
+                        <td><%= personas[i].nombre %></td>
+                        <td><%= personas[i].apellido %></td>
+                        <td><%= personas[i].edad %></td>
+                        <td><%= personas[i].ci %></td>
+                      </tr>
+                <% } %>
+            </tbody>
+        </table>
+
+
+      </div>
 
 
 </body>
